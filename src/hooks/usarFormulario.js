@@ -1,13 +1,15 @@
 import { useState } from 'react';
 
 // Hook personalizado para manejar formularios
-function useFormulario(valoresIniciales) { // Asegúrate de que el nombre comience con "use"
+function useFormulario(valoresIniciales) {
+  // Asegúrate de que el nombre del hook comience con "use"
   const [valores, setValores] = useState(valoresIniciales);
 
   // Función para actualizar un valor específico en el formulario
   function establecerValor(clave, valor) {
     setValores({
-      ...valores, [clave]: valor
+      ...valores,
+      [clave]: valor,
     });
   }
 
@@ -27,4 +29,4 @@ function useFormulario(valoresIniciales) { // Asegúrate de que el nombre comien
   return { manejarCambio, valores, limpiarFormulario };
 }
 
-export default useFormulario; // Asegúrate de exportarlo con el nombre correcto
+export default useFormulario; 

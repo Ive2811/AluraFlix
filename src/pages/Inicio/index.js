@@ -4,18 +4,16 @@ import datosIniciales from '../../data/datos_iniciales.json';
 import BannerPrincipal from '../../components/BannerPrincipal';
 import Carrusel from '../../components/Carrusel';
 import PaginaPredeterminada from '../../components/PaginaPredeterminada';
-import PieDePagina from '../../components/PieDePagina';
 import repositorioCategorias from '../../repositories/categorias';
-import categorias from '../../repositories/categorias';
 
 // Componente principal de la página de inicio
 function Inicio() {
-  const [datosIniciales, setDatosIniciales] = useState([]);
+  const [datos, setDatos] = useState([]);
 
   useEffect(() => {
-    repositorioCategorias.getAllWithVideos()
+    repositorioCategorias.obtenerTodasConVideos()
       .then((categoriasConVideos) => {
-        setDatosIniciales(categoriasConVideos);
+        setDatos(categoriasConVideos);
       })
       .catch((err) => {
         console.log(err.message);
@@ -24,21 +22,21 @@ function Inicio() {
 
   return (
     <PaginaPredeterminada paddingTotal={0}>
-      {datosIniciales.length === 0 && (<div>Cargando...</div>)}
+      {datos.length === 0 && (<div>Cargando...</div>)}
 
-      {datosIniciales.map((categoria, indice) => {
+      {datos.map((categoria, indice) => {
         if (indice === 0) {
           return (
             <div key={categoria.id}>
               <BannerPrincipal
-                tituloVideo={datosIniciales[0].videos[0].titulo}
-                url={datosIniciales[0].videos[0].url}
-                descripcionVideo={"¿Qué es Front-end? Trabajando en el área, los términos HTML, CSS y JavaScript forman parte de la rutina de las desarrolladoras y desarrolladores. Pero, ¿qué hacen en realidad? ¡Descúbrelo con Vanessa!"}
+                tituloVideo={datos[0].videos[0].titulo}
+                url={datos[0].videos[0].url}
+                descripcionVideo={"¡Descubre el camino hacia el éxito como desarrollador Java! 💻🚀 En esta entrevista, exploramos los secretos del mundo Java y respondemos a tus preguntas clave."}
               />
 
               <Carrusel
                 ignorarPrimerVideo
-                categoria={datosIniciales[0]}
+                categoria={datos[0]}
               />
             </div>
           );

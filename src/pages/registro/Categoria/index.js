@@ -10,7 +10,7 @@ function RegistroCategoria() {
   const valoresIniciales = {
     nombre: '',
     descripcion: '',
-    color: ''
+    color: '',
   };
 
   const { manejarCambio, valores, limpiarFormulario } = usarFormulario(valoresIniciales);
@@ -18,18 +18,19 @@ function RegistroCategoria() {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
-    if (window.location.href.includes('localhost')) {
-      const URL = 'http://localhost:8080/categorias';
-      fetch(URL)
-        .then(async (respuestaDelServidor) => {
-          if (respuestaDelServidor.ok) {
-            const respuesta = await respuestaDelServidor.json();
-            setCategorias(respuesta);
-            return;
-          }
-          throw new Error('No fue posible obtener los datos');
-        });
-    }
+    const URL = window.location.href.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://your-production-url/categorias';
+    
+    fetch(URL)
+      .then(async (respuestaDelServidor) => {
+        if (respuestaDelServidor.ok) {
+          const respuesta = await respuestaDelServidor.json();
+          setCategorias(respuesta);
+          return;
+        }
+        throw new Error('No fue posible obtener los datos');
+      });
   }, []);
 
   return (
@@ -70,7 +71,7 @@ function RegistroCategoria() {
 
       <ul>
         {categorias.map((categoria) => (
-          <li key={categoria.titulo}>{categoria.titulo}</li>
+          <li key={categoria.id}>{categoria.titulo}</li>
         ))}
       </ul>
 

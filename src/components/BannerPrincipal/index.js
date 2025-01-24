@@ -35,12 +35,8 @@ export default function BannerPrincipal({
         </ContenedorAreaContenido.Item>
 
         <ContenedorAreaContenido.Item>
-          <IframeResponsivoVideo
-            idYouTube={idYouTube}
-          />
-          <BotonVer>
-            Ver
-          </BotonVer>
+          <IframeResponsivoVideo idYouTube={idYouTube} />
+          <BotonVer>Ver</BotonVer>
         </ContenedorAreaContenido.Item>
       </ContenedorAreaContenido>
     </ContenedorPrincipalBanner>

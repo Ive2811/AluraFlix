@@ -51,7 +51,7 @@ export const ListaTarjetasVideo = styled.ul`
 
 // Estilo del contenedor del grupo de tarjetas de video
 export const ContenedorGrupoTarjetasVideo = styled.section`
-  color: blanco;
+  color: var(--blanco); // Asegúrate de definir la variable --blanco en tu CSS global
   min-height: 197px;
   margin-left: 5%;
   margin-bottom: 16px;

@@ -10,7 +10,7 @@ function obtenerTodas() {
         const respuesta = await respuestaDelServidor.json();
         return respuesta;
       }
-  
+
       throw new Error('No fue posible obtener los datos :(');
     });
 }
@@ -27,4 +27,4 @@ function obtenerTodasConVideos() {
     });
 }
 
-export default { obtenerTodasConVideos, obtenerTodas };
+export default { obtenerTodas, obtenerTodasConVideos };

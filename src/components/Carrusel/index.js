@@ -3,11 +3,10 @@ import { ContenedorGrupoTarjetasVideo, Titulo, EnlaceExtra } from './styles';
 import TarjetaVideo from './components/TarjetaVideo';
 import Deslizador, { ElementoDeslizador } from './components/Deslizador';
 
-// Componente del carrusel
 function Carrusel({ ignorarPrimerVideo, categoria }) {
   const tituloCategoria = categoria.titulo;
-  const colorCategoria = categoria.cor;
-  const enlaceExtraCategoria = categoria.link_extra;
+  const colorCategoria = categoria.color;
+  const enlaceExtraCategoria = categoria.enlace_extra; 
   const videos = categoria.videos;
 
   return (
@@ -19,7 +18,7 @@ function Carrusel({ ignorarPrimerVideo, categoria }) {
           </Titulo>
           {enlaceExtraCategoria && 
             <EnlaceExtra href={enlaceExtraCategoria.url} target="_blank">
-              {enlaceExtraCategoria.text}  
+              {enlaceExtraCategoria.texto}  {}
             </EnlaceExtra>
           }
         </>

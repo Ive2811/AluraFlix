@@ -19,8 +19,7 @@ function RegistroVideo() {
   });
 
   useEffect(() => {
-    repositorioCategorias
-      .getAll()
+    repositorioCategorias.obtenerTodas()
       .then((categoriasDelServidor) => {
         setCategorias(categoriasDelServidor);
       });
@@ -32,19 +31,17 @@ function RegistroVideo() {
 
       <form onSubmit={(evento) => {
         evento.preventDefault();
-        // alert('Video Registrado con éxito!!!1!');
+        alert('¡Video registrado con éxito!');
 
-        const categoriaElegida = categorias.find((categoria) => {
-          return categoria.titulo === valores.categoria;
-        });
+        const categoriaElegida = categorias.find((categoria) => categoria.titulo === valores.categoria);
 
-        repositorioVideos.create({
+        repositorioVideos.crear({
           titulo: valores.titulo,
           url: valores.url,
           categoriaId: categoriaElegida.id,
         })
         .then(() => {
-          console.log('Registrado con éxito!');
+          console.log('¡Registrado con éxito!');
           historial.push('/');
         });
       }}>
@@ -80,7 +77,7 @@ function RegistroVideo() {
       <br />
 
       <Link to="/registro/categoria">
-        Registrar Categoría
+        Registrar categoría
       </Link>
     </PaginaPredeterminada>
   );

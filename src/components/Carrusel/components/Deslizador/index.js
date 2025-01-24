@@ -1,12 +1,11 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import SlickSlider from 'react-slick';
 import styled from 'styled-components';
 
-// Contenedor principal del slider
 const Contenedor = styled.ul`
   padding: 0;
   margin: 0;
-
   .slick-prev,
   .slick-next {
     z-index: 50;
@@ -20,7 +19,7 @@ const Contenedor = styled.ul`
       font-size: 30px;
     }
   }
-
+  
   .slick-prev {
     left: 0;
   }
@@ -29,10 +28,8 @@ const Contenedor = styled.ul`
   }
 `;
 
-// Elemento del slider que contiene las imágenes
-export const ElementoSlider = styled.li`
+export const ElementoDeslizador = styled.li`
   margin-right: 16px;
-  
   img {
     margin: 16px;
     width: 298px;
@@ -41,20 +38,21 @@ export const ElementoSlider = styled.li`
   }
 `;
 
-// Componente principal del slider
-const Slider = ({ children }) => (
+const Deslizador = ({ children }) => (
   <Contenedor>
-    <SlickSlider
-      dots={false}
-      infinite={false}
-      speed={300}
-      centerMode={false}
-      variableWidth={true}
-      adaptiveHeight={true}
+    <SlickSlider {...{
+      dots: false,
+      infinite: false,
+      speed: 300,
+      centerMode: false,
+      variableWidth: true,
+      adaptiveHeight: true,
+    }}
     >
       {children}
     </SlickSlider>
   </Contenedor>
 );
 
-export default Slider;
+export default Deslizador;
+

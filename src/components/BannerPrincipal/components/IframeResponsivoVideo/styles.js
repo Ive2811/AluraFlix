@@ -5,9 +5,9 @@ export const ContenedorVideo = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 56.25%; // Mantiene una proporción de 16:9 para el video
+  padding-top: 56.25%; /* Mantiene una proporción de 16:9 para el video */
   @media (max-width: 800px) {
-    display: none; // Oculta el video en pantallas pequeñas
+    display: none; /* Oculta el video en pantallas pequeñas */
   }
 `;
 
@@ -19,5 +19,5 @@ export const IframeResponsivo = styled.iframe`
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 100%; // Asegura que el iframe llene todo el contenedor
+  height: 100%; /* Asegura que el iframe llene todo el contenedor */
 `;
